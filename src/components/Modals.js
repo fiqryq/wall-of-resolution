@@ -3,8 +3,11 @@ export default function Card({
   isOpen,
   closeModal,
   Fragment,
+  color,
   resolution,
   name,
+  profile_url,
+  profession,
 }) {
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -13,7 +16,7 @@ export default function Card({
         className="fixed inset-0 z-10 overflow-y-auto"
         onClose={closeModal}
       >
-        <div className="min-h-screen px-4 text-center  bg-black bg-opacity-10 transform backdrop-filter backdrop-blur-md">
+        <div className="min-h-screen px-4 text-center bg-black bg-opacity-50 transform backdrop-filter backdrop-blur-md">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -41,16 +44,25 @@ export default function Card({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="inline-block bg-pink-600 w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl">
-              <div className="w-full h-64 bg-pink-600 cursor-pointer p-8 mx-auto flex flex-col justify-between rounded-md">
-                <p className="font-mono pt-5 text-white">{resolution}</p>
+            <div
+              className={`inline-block ${color} w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl`}
+            >
+              <div
+                className={`w-full h-64  cursor-pointer p-8 mx-auto flex flex-col justify-between rounded-md`}
+              >
+                <p className="font-mono pt-5 text-xl text-white">
+                  {resolution}
+                </p>
                 <div className="flex space-x-2">
                   <img
-                    className="rounded-full h-8 w-8"
+                    className="rounded-full h-6 w-6"
                     alt="profile"
-                    src="https://images.unsplash.com/photo-1638043883373-bb3f45f23033?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                    src={profile_url}
                   />
-                  <p className="font-mono text-xl text-white">{name}</p>
+                  <p className="font-mono text-lg text-white">
+                    {" "}
+                    {name} - <span className="text-gray-300">{profession}</span>
+                  </p>
                 </div>
               </div>
             </div>

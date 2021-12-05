@@ -1,11 +1,14 @@
 import { useEffect, useState, Fragment } from "react";
 import Modals from "./components/Modals";
+import Footer from "./components/Footer";
+import { gradients } from "./style/gradient";
 import data from "./resolution/resolution.json";
 
 function App() {
   const [resolution, setResolution] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [detail, setDetail] = useState([]);
+  const [color, setColor] = useState([]);
 
   useEffect(() => {
     setResolution(data);
@@ -15,10 +18,20 @@ function App() {
     setIsOpen(false);
   }
 
-  function openModal(index) {
+  function openModal(index, color) {
+    console.log(color);
     setDetail(resolution[index]);
+    setColor(color);
     setIsOpen(true);
   }
+
+  const getColors = (index) => {
+    if (index <= gradients.length) {
+      return gradients[index];
+    } else {
+      return gradients[index - (gradients.length + 1)];
+    }
+  };
 
   return (
     <div>
@@ -33,7 +46,8 @@ function App() {
 
           <div className="w-full">
             <h1 className="font-mono font-bold text-6xl pt-10">
-              2 Tahun dari sekarang harus bisa kerja di perusahaan besar.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Distinctio dolorem, libero maiores
             </h1>
           </div>
 
@@ -67,14 +81,16 @@ function App() {
           </h1>
           <div className="grid grid-cols-3 gap-4">
             {resolution.map((items, index) => {
+              const style = `w-full h-64 ${getColors(
+                index
+              )} cursor-pointer p-8 mx-auto flex flex-col justify-between rounded-md`;
               return (
-                <div>
+                <div key={index}>
                   <div
-                    key={index}
                     onClick={() => {
-                      openModal(index);
+                      openModal(index, getColors(index));
                     }}
-                    className="w-full h-64 bg-pink-600 cursor-pointer p-8 mx-auto flex flex-col justify-between rounded-md"
+                    className={style}
                   >
                     <p className="font-mono pt-5 text-white">
                       {items.resolution}
@@ -83,7 +99,7 @@ function App() {
                       <img
                         className="rounded-full h-5 w-5"
                         alt="profile"
-                        src="https://images.unsplash.com/photo-1638043883373-bb3f45f23033?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                        src={items.profile_url}
                       />
                       <p className="font-mono text-white">{items.name}</p>
                     </div>
@@ -94,16 +110,17 @@ function App() {
           </div>
           <Modals
             isOpen={isOpen}
+            color={color}
             closeModal={closeModal}
             Fragment={Fragment}
             resolution={detail.resolution}
             name={detail.name}
+            profile_url={detail.profile_url}
+            profession={detail.profession}
           />
         </div>
       </div>
-      <footer className="text-center py-10 font-mono">
-        <p>copyright Fiqry choerudin</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

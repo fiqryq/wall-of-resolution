@@ -1,20 +1,9 @@
 [
     {
         "name" : "Fiqry choerudin",
-        "resolution" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dolorem, libero maiores",
-        "profession" : "Frontend enginer - based in bandung",
-        "about" : "Fiqry choerudin. Saya adalah seorang Front-end Developer berusia 22 tahun yang sekarang tinggal di Bandung. Saat ini, saya telah bekerja di Pusat Teknogi Informasi di salah satu kampus di Kota Bandung selama 8 bulan."
-    },
-    {
-        "name" : "Fiqry ss",
-        "resolution" : "Aku ingin kaya dunia akhirat",
-        "profession" : "Frontend Enginer",
-        "about" : "wkowkowkowokwokwok"
-    },
-    {
-        "name" : "Fiqry ss",
-        "resolution" : "Aku ingin kaya dunia akhirat",
-        "profession" : "Frontend Enginer",
-        "about" : "wkowkowkowokwokwok"
+        "profile_url" : "https://avatars.githubusercontent.com/u/25787603?v=4",
+        "resolution" : "Ingin Berguna bagi bangsa dan negara sama satu lg aku ingin kaya heheh",
+        "profession" : "Frontend Developer",
+        "about" : "Fiqry choerudin. Saya adalah seorang Frontend Developer berusia 22 tahun yang sekarang tinggal di Bandung. Saat ini, saya telah bekerja di Pusat Teknogi Informasi di salah satu kampus di Kota Bandung."
     }
 ]
