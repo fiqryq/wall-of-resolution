@@ -1,7 +1,8 @@
 import { useEffect, useState, Fragment } from "react";
+import { gradients } from "./style/gradient";
+import Typewrite from "./components/Typewrite";
 import Modals from "./components/Modals";
 import Footer from "./components/Footer";
-import { gradients } from "./style/gradient";
 import data from "./resolution/resolution.json";
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
   }
 
   function openModal(index, color) {
-    console.log(color);
     setDetail(resolution[index]);
     setColor(color);
     setIsOpen(true);
@@ -35,51 +35,29 @@ function App() {
 
   return (
     <div>
-      <div className=" w-8/12 mx-auto">
-        <div className="w-full h-screen space-y-2 flex flex-col justify-evenly">
+      <div className="lg:w-10/12 md:w-10/12 sm:w-9/12 xs:w-11/12 mx-auto">
+        <div className="w-full h-screen space-y-10 flex flex-col justify-center">
+          {/* Tittle */}
           <div className="flex justify-between">
             <h1 className="font-bold font-mono text-xl">
               <span className="bg-pink-600 text-white p-1">Wall</span> of
               Resolution
             </h1>
           </div>
-
-          <div className="w-full">
-            <h1 className="font-mono font-bold text-6xl pt-10">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Distinctio dolorem, libero maiores
-            </h1>
-          </div>
-
-          <div className="flex flex-col pt-10">
-            <div className="flex flex-col">
-              <div className="flex space-x-3">
-                <img
-                  className="h-10 w-10 rounded-full"
-                  alt="profile"
-                  src="https://images.unsplash.com/photo-1638043883373-bb3f45f23033?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                />
-                <h1 className="text-4xl font-bold font-mono">
-                  Fiqry choerudin
-                </h1>
-              </div>
-              <div className="flex flex-col space-y-3 pt-5">
-                <p className="font-mono">Frontend Enginer</p>
-                <p className="font-mono font-bold w-8/12">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-                  eaque distinctio quod eveniet ad quasi? Ad quasi beatae fugit
-                  quis corrupti numquam rem in fuga?
-                </p>
-              </div>
-            </div>
-          </div>
+          {
+            <Typewrite
+              resolution={data[data.length - 1]}
+              autoStart={true}
+              loop={true}
+            />
+          }
         </div>
 
         <div className="space-y-10 w-full">
           <h1 className="font-bold font-mono text-3xl text-left mt-5">
             # All Resolution
           </h1>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
             {resolution.map((items, index) => {
               const style = `w-full h-64 ${getColors(
                 index
@@ -119,8 +97,8 @@ function App() {
             profession={detail.profession}
           />
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }

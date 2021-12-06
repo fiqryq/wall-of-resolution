@@ -48,19 +48,19 @@ export default function Card({
               className={`inline-block ${color} w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl`}
             >
               <div
-                className={`w-full h-64  cursor-pointer p-8 mx-auto flex flex-col justify-between rounded-md`}
+                className={`w-full h-64  cursor-pointer p-4 mx-auto flex flex-col justify-between rounded-md`}
               >
-                <p className="font-mono pt-5 text-xl text-white">
+                <p className="font-mono pt-5 text-xl text-white xs:text-lg">
                   {resolution}
                 </p>
-                <div className="flex space-x-2">
+
+                <div className="flex space-x-2 items-center">
                   <img
                     className="rounded-full h-6 w-6"
                     alt="profile"
                     src={profile_url}
                   />
-                  <p className="font-mono text-lg text-white">
-                    {" "}
+                  <p className="font-mono text-lg text-white xs:text-lg xs:pl-3">
                     {name} - <span className="text-gray-300">{profession}</span>
                   </p>
                 </div>
