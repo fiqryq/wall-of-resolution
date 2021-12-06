@@ -48,7 +48,7 @@ export default function Card({
               className={`inline-block ${color} w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl`}
             >
               <div
-                className={`w-full h-64  cursor-pointer p-4 mx-auto flex flex-col justify-between rounded-md`}
+                className={`w-full h-64 p-4 mx-auto flex flex-col justify-between rounded-md`}
               >
                 <p className="font-mono pt-5 text-xl text-white xs:text-lg">
                   {resolution}
